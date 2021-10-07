@@ -1,14 +1,31 @@
+* { cursor: default; }
+.drag {
+  /* убираем выделение текста и изображений */
+  -webkit-user-select: none;
+  /* позволяем курсором двигать окно используя данный элемент в разметке */
+  -webkit-app-region: drag;
+}
+.no-drag {
+  /* запрещаем двигать курсором окно используя данный элемент в разметке */
+  -webkit-app-region: no-drag;
+}
+
+header {
+    width: 100%;
+    background-color: #c5fb9c;
+}
 body {
     color: #FFFFFF;
     background-color: #1e1e1e;
     font-size: 16px;
+    overflow-y: hidden;
 }
 
 
 .v-sidebar {
     background-color: #252525;
     padding: 20px;
-    height: 540px;
+    height: 600px;
 }
 .v-wrapper {
     padding: 20px;

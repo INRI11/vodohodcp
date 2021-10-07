@@ -1,22 +1,5 @@
-
-/*
-import { db } from 'electron-db';
-import path from 'path';
-*/
-/*
-const db = require('electron-db');
 const path = require('path');
- 
-// This will save the database in the same directory as the application.
-const location = path.join(__dirname, '');
-
-alert(location);
-db.createTable('sites', location, (succ, msg) => {
-    // succ - boolean, tells if the call is successful
-    alert("Success: " + succ);
-    console.log("Message: " + msg);
-    })
-*/
+const url = require('url');
 
 var obRequest = {
     urlStageSite: 'https://stage.vodohod.com/test_scripts/git.php',
@@ -76,16 +59,9 @@ var obBranches = {
     },
 
     init: (function(){
-        
         let timerId = setInterval(() => {
             obBranches.onSyncBranches();
         }, 60000);
-        /*
-        document.querySelector('#elGetBranches').addEventListener('click', () => {
-            obBranches.onSyncBranches();
-        })
-        */
-
     })()
 };
 

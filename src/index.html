@@ -2,12 +2,23 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vodohod Control Panel</title>
     <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./style.css">
   </head>
   <body>
-    <div class="container-fluid g-0">
+    <!--
+    <div class="row g-0">
+      <div class="col-12">
+        <header class="drag">
+          asdasd
+        </header>
+      </div>
+    </div>
+    -->
+    <div class="container-fluid g-0 no-drag">
+      
       <div class="row g-0">
         <div class="col-3">
           <div class="v-sidebar">
@@ -15,18 +26,18 @@
           </div>
         </div>
         <div class="col-9">
-          <div class="v-wrapper">
+          <div class="v-wrapper" id="elWrapper">
 
             <div class="branchesStatuses">
               <div class="row">
                 <div class="col-5">stage.vodohod.com</div>
                 <div class="col-7">
-                  <div id="elBranchSiteStatus" class="branch_site_status">Обновление...</div>
+                    <div id="elBranchSiteStatus" class="branch_site_status">Обновление...</div>
                 </div>
               </div> 
               <div class="row" style="margin-top: 10px;">
                 <div class="col-12">Ветка: <span id="elBranchSite" class="v-branch">...</span>
-                  <button onclick="obBranches.onCheckoutBranch();" class="v-btn btn" style="margin-left: 10px;">Переключить</button>
+                    <button onclick="obBranches.onCheckoutBranch();" class="v-btn btn" style="margin-left: 10px;">Переключить</button>
                 </div>
               </div>
             </div>

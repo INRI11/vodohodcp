@@ -14,13 +14,30 @@ const createWindow = () => {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    //frame: true,
+    show: false,    // показывать после создания
+    minWidth: 800, // минимальная ширина окна
+    minHeight: 600, // минимальная высота окна
+    maxWidth: 800, // максимальная ширина окна
+    maxHeight: 600, // максимальная высота окна
+    resizable: false, // будет ли окно изменять размеры
+    backgroundColor: '#1e1e1e', // цвет фона окна
+    titleBarStyle: 'hidden',
+    webPreferences: {
+      nodeIntegration: true,
+      experimentalFeatures: true
+    }
   });
 
   // and load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  //mainWindow.webContents.openDevTools();
+
+  mainWindow.once('ready-to-show', () => {
+    mainWindow.show() // показать окно после полной загрузки
+  })
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
@@ -29,12 +46,16 @@ const createWindow = () => {
     // when you should delete the corresponding element.
     mainWindow = null;
   });
+
+  mainWindow.setMenuBarVisibility(false)
 };
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
+app.on('ready', () => {
+  createWindow();
+});
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
@@ -55,3 +76,7 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+// If OSX, add empty object to menu
+if(process.platform == 'darwin'){
+  mainMenuTemplate.unshift({});
+}

@@ -1,8 +1,8 @@
 {
-  "name": "simple-desktop-app-electronjs",
-  "productName": "simple-desktop-app-electronjs",
+  "name": "VodohodCP",
+  "productName": "VodohodCP",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "Vodohod Control Panel",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
@@ -12,7 +12,7 @@
     "lint": "eslint src --color"
   },
   "keywords": [],
-  "author": "rifat",
+  "author": "Rifat Mullayanov",
   "license": "MIT",
   "config": {
     "forge": {
@@ -32,17 +32,17 @@
         "packageManager": "npm"
       },
       "electronWinstallerConfig": {
-        "name": "simple_desktop_app_electronjs"
+        "name": "vodohod_cp"
       },
       "electronInstallerDebian": {},
       "electronInstallerRedhat": {},
       "github_repository": {
-        "owner": "",
-        "name": ""
+        "owner": "inri11",
+        "name": "inri11"
       },
       "windowsStoreConfig": {
         "packageName": "",
-        "name": "simpledesktopappelectronjs"
+        "name": "vodohodcp"
       }
     }
   },
