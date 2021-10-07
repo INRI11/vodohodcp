@@ -1,10 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <meta charset="UTF-8">
+    <title>Vodohod Control Panel</title>
+    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
   </head>
   <body>
-    Well hey there!!!
+    <div class="container-fluid g-0">
+      <div class="row g-0">
+        <div class="col-3">
+          <div class="v-sidebar">
+            <button class="v-mbtn btn" id="elGetBranches" onclick="obBranches.onSyncBranches();">Получить ветки</button>
+          </div>
+        </div>
+        <div class="col-9">
+          <div class="v-wrapper">
+
+            <div class="branchesStatuses">
+              <div class="row">
+                <div class="col-5">stage.vodohod.com</div>
+                <div class="col-7">
+                  <div id="elBranchSiteStatus" class="branch_site_status">Обновление...</div>
+                </div>
+              </div> 
+              <div class="row" style="margin-top: 10px;">
+                <div class="col-12">Ветка: <span id="elBranchSite" class="v-branch">...</span>
+                  <button onclick="obBranches.onCheckoutBranch();" class="v-btn btn" style="margin-left: 10px;">Переключить</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div> 
+    </div>
+
+    <script src="./renderer.js"></script>
   </body>
 </html>

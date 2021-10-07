@@ -1,0 +1,52 @@
+body {
+    color: #FFFFFF;
+    background-color: #1e1e1e;
+    font-size: 16px;
+}
+
+
+.v-sidebar {
+    background-color: #252525;
+    padding: 20px;
+    height: 540px;
+}
+.v-wrapper {
+    padding: 20px;
+}
+
+.v-mbtn {
+    color: #FFFFFF;
+    border: 1px solid #38373d;
+    background-color: #38373d;
+}
+.v-btn {
+    color: #FFFFFF;
+    border: 1px solid #333333;
+    background-color: #333333;
+    padding: 4px 10px 4px 10px;
+}
+.v-btn:hover {
+    color: #FFFFFF;
+    border: 1px solid #434343;
+    background-color: #434343;
+}
+
+.branchesStatuses {
+    padding: 5px 20px 20px 20px;
+    background-color: #333333;
+}
+.branch_site_status {
+    text-align: right;
+    font-size: 14px;
+    color: #bdbcbc;
+}
+
+.v-branch {
+    padding: 1px 10px 4px 10px;
+    margin-left: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    color: #575757;
+    background-color: #c5fb9c;
+    display: inline-block;
+}
