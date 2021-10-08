@@ -10,10 +10,7 @@
   -webkit-app-region: no-drag;
 }
 
-header {
-    width: 100%;
-    background-color: #c5fb9c;
-}
+
 body {
     color: #FFFFFF;
     background-color: #1e1e1e;
@@ -27,15 +24,27 @@ body {
     padding: 20px;
     height: 600px;
 }
+header.v-header {
+    width: 100%;
+    background-color: #252525;
+}
 .v-wrapper {
     padding: 20px;
 }
 
 .v-mbtn {
     color: #FFFFFF;
+    border: 1px solid #252525;
+    background-color: #252525;
+    border-radius: 0px;
+}
+.v-mbtn:hover {
+    color: #FFFFFF;
     border: 1px solid #38373d;
     background-color: #38373d;
+    border-radius: 0px;
 }
+
 .v-btn {
     color: #FFFFFF;
     border: 1px solid #333333;

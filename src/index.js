@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, Tray, Menu } from 'electron';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -8,6 +8,10 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
+
+// Tray
+let isQuiting;
+let appTray = null;
 
 const createWindow = () => {
   // Create the browser window.
@@ -23,6 +27,7 @@ const createWindow = () => {
     resizable: false, // будет ли окно изменять размеры
     backgroundColor: '#1e1e1e', // цвет фона окна
     titleBarStyle: 'hidden',
+    icon: './icon.png',
     webPreferences: {
       nodeIntegration: true,
       experimentalFeatures: true
@@ -33,11 +38,61 @@ const createWindow = () => {
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 
   // Open the DevTools.
-  //mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
+
+  mainWindow.setMenuBarVisibility(false)
+
+
+  appTray = new Tray('./icon.png'); // path.join(__dirname, 'icon.png')
+  appTray.setToolTip('Развернуть приложение');
+  appTray.setContextMenu(Menu.buildFromTemplate([
+    {
+      label: 'Открыть VodohodCP', 
+      click: () => {
+        mainWindow.show();
+      }
+    },
+    {
+      label: 'Закрыть VodohodCP', 
+      click: () => {
+        isQuiting = true;
+        app.quit();
+      }
+    }
+  ]));
+
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show() // показать окно после полной загрузки
   })
+
+ // По клику скрываем или открываем приложение
+ appTray.on('click', () => {
+    mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
+  })
+
+  // Подсвечиваем как активное приложение 
+  mainWindow.on('show', () => {
+    //appTray.setHighlightMode('always')
+  })
+
+  // Скрываем подсветку
+  mainWindow.on('hide', () => {
+    //appTray.setHighlightMode('never')
+  })
+
+  mainWindow.on('minimize',function(event){
+    event.preventDefault();
+    mainWindow.minimize();
+  });
+
+  mainWindow.on('close', function (event) {
+    if (!isQuiting) {
+      event.preventDefault();
+      mainWindow.hide();
+      event.returnValue = false;
+    }
+  });
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
@@ -47,7 +102,7 @@ const createWindow = () => {
     mainWindow = null;
   });
 
-  mainWindow.setMenuBarVisibility(false)
+
 };
 
 // This method will be called when Electron has finished
@@ -55,6 +110,12 @@ const createWindow = () => {
 // Some APIs can only be used after this event occurs.
 app.on('ready', () => {
   createWindow();
+});
+
+app.on('before-quit', function () {
+  isQuiting = true;
+
+  mainWindow.removeAllListeners("close");
 });
 
 // Quit when all windows are closed.
