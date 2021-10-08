@@ -51,6 +51,7 @@ body {
 .branchesStatuses {
     padding: 5px 20px 20px 20px;
     background-color: #333333;
+    margin-bottom: 20px;
 }
 .branch_site_status {
     text-align: right;
