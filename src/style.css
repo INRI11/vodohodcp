@@ -32,13 +32,16 @@ header.v-header {
     padding: 20px;
 }
 
-.v-mbtn {
+.v-mbtn,
+.v-mbtn:link,
+.v-mbtn:focus,
+.v-mbtn:visited {
     color: #FFFFFF;
     border: 1px solid #252525;
     background-color: #252525;
     border-radius: 0px;
 }
-.v-mbtn:hover {
+.v-mbtn:hover{
     color: #FFFFFF;
     border: 1px solid #38373d;
     background-color: #38373d;

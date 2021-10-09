@@ -4,32 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vodohod Control Panel</title>
+    <link rel="stylesheet" type="text/css" href="./reset.css">
     <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./style.css">
   </head>
   <body>
-    <!--
-    
-    -->
     <div class="container-fluid g-0 no-drag">
       <div class="row g-0">
         <div class="col-12">
           <header class="v-header drag">
               <button class="v-mbtn btn" id="elGetBranches" onclick="obBranches.onSyncBranches();">Получить ветки</button>
+              <button class="v-mbtn btn" onclick="onPrompt();">Авторизоваться</button>
           </header>
         </div>
       </div>
       <div class="row g-0">
         <div class="col-12">
-          <div class="v-wrapper" id="elWrapper">
-
-            
-
-          </div>
+          <div class="v-wrapper" id="elWrapper"></div>
         </div>
       </div> 
     </div>
-
     <script src="./renderer.js"></script>
   </body>
 </html>

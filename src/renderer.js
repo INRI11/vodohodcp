@@ -1,8 +1,14 @@
 const path = require('path');
 const url = require('url');
-const User = require("./user.js");
 const notifier = require('node-notifier');
- 
+
+const Authorize = require("./authorize.js");
+
+const onPrompt = () => {
+    let authorize = new Authorize();
+    authorize.open();
+}
+
 var obConfig = {
     projects: [
         { id: 1, name: "stage.vodohod.com", url: 'https://stage.vodohod.com/git.php'},
@@ -146,9 +152,6 @@ var obBranches = {
                 elWrapper.append(item);
             });
         }
-
-        let eugene = new User("Eugene", 32);
-        eugene.sayHi();
     })()
 };
 

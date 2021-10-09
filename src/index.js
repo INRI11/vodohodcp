@@ -1,4 +1,5 @@
-import { app, BrowserWindow, Tray, Menu } from 'electron';
+import { app, BrowserWindow, Tray, Menu, globalShortcut } from 'electron';
+const path = require('path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -27,7 +28,7 @@ const createWindow = () => {
     resizable: false, // будет ли окно изменять размеры
     backgroundColor: '#1e1e1e', // цвет фона окна
     titleBarStyle: 'hidden',
-    icon: './icon.png',
+    icon: path.join(__dirname, '/icon.png'),
     webPreferences: {
       nodeIntegration: true,
       experimentalFeatures: true
@@ -43,7 +44,7 @@ const createWindow = () => {
   mainWindow.setMenuBarVisibility(false)
 
 
-  appTray = new Tray('./icon.png'); // path.join(__dirname, 'icon.png')
+  appTray = new Tray(path.join(__dirname, '/icon.png')); // 
   appTray.setToolTip('Развернуть приложение');
   appTray.setContextMenu(Menu.buildFromTemplate([
     {
