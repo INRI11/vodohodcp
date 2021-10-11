@@ -23,9 +23,9 @@ const createWindow = () => {
     show: false,    // показывать после создания
     minWidth: 800, // минимальная ширина окна
     minHeight: 600, // минимальная высота окна
-    maxWidth: 800, // максимальная ширина окна
-    maxHeight: 600, // максимальная высота окна
-    resizable: false, // будет ли окно изменять размеры
+    //maxWidth: 800, // максимальная ширина окна
+    //maxHeight: 600, // максимальная высота окна
+    //resizable: false, // будет ли окно изменять размеры
     backgroundColor: '#1e1e1e', // цвет фона окна
     titleBarStyle: 'hidden',
     icon: path.join(__dirname, '/icon.png'),
@@ -39,7 +39,7 @@ const createWindow = () => {
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 
   // Open the DevTools.
-  //mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
   mainWindow.setMenuBarVisibility(false)
 
@@ -139,6 +139,6 @@ app.on('activate', () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
 // If OSX, add empty object to menu
-if(process.platform == 'darwin'){
-  mainMenuTemplate.unshift({});
-}
+//if(process.platform == 'darwin'){
+//  mainMenuTemplate.unshift({});
+//}

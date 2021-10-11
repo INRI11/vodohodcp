@@ -3,10 +3,16 @@ const url = require('url');
 const notifier = require('node-notifier');
 
 const Authorize = require("./authorize.js");
+const JsonFormatter = require("./jsonformatter.js");
 
-const onPrompt = () => {
+const onAuthorize = () => {
     let authorize = new Authorize();
     authorize.open();
+}
+
+const onJsonFormatter = () => {
+    let jsonFormatter = new JsonFormatter();
+    jsonFormatter.open();
 }
 
 var obConfig = {
