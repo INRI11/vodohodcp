@@ -48,7 +48,8 @@ class Branches {
                 promise.then(
                     result => {
                         if(result.branch_site) {
-                            elBranchName.innerHTML = result.branch_site;
+                            if(elBranchName)
+                                elBranchName.innerHTML = result.branch_site;
 
                             if ("branch" in project && project.branch != result.branch_site) {
                                 const options = {
@@ -69,16 +70,18 @@ class Branches {
                         console.log(error);
                     }
                 );
-                var today  = new Date();
-                let formatter = new Intl.DateTimeFormat("ru", {
-                    weekday:    "long",
-                    year:       "numeric",
-                    month:      "long",
-                    day:        "numeric",
-                    hour:       "numeric",
-                    minute:     "numeric"
-                });
-                elBranchStatus.innerHTML = formatter.format(today);
+                if(elBranchStatus) {
+                    var today  = new Date();
+                    let formatter = new Intl.DateTimeFormat("ru", {
+                        weekday:    "long",
+                        year:       "numeric",
+                        month:      "long",
+                        day:        "numeric",
+                        hour:       "numeric",
+                        minute:     "numeric"
+                    });
+                    elBranchStatus.innerHTML = formatter.format(today);
+                }
             });
         }
     }

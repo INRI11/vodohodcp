@@ -88,6 +88,9 @@ header.v-header {
     width: 100%;
     height: 40px;
 }
+.v-json-actions button {
+    font-size: 12px;
+}
 
 .v-json-code {
     display: block;
@@ -102,4 +105,34 @@ header.v-header {
     display: none;
     width: 100%;
 
+}
+
+.v-json-code textarea {
+	overflow-y: scroll;
+    border: none;
+	scrollbar-color: #bfc4ce #f9f9fd;  
+}
+.v-json-code textarea::-webkit-scrollbar {
+    width: 7px;
+    background-color: #f9f9fd;   
+	border-radius: 9em;
+}
+
+.v-json-code textarea::-webkit-scrollbar-thumb {
+    background-color: #bfc4ce;
+}
+.v-json-code textarea::-webkit-scrollbar-track {
+    -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+    background-color: #f9f9fd;
+}
+
+.elJsonTreePath {
+    font-size: 12px;
+    padding: 4px;
+    margin-left: 10px;
+    border: none;
+    background: none;
+    color: #ffffff;
+    width: auto;
+    display:inline-block;
 }

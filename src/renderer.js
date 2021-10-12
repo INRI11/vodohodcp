@@ -26,6 +26,20 @@ const onBranches = () => {
     currentPage = 'branch';
 }
 
+const onJsonCode = () => {
+    jsonFormatter.jsonCode();
+}
+
+const onJsonTree = () => {
+    jsonFormatter.jsonTree();
+}
+
+const onJsonCodeFormatter = () => {
+    jsonFormatter.onJsonFormatter();
+}
+
+
+
 window.addEventListener('DOMContentLoaded', () => {
     branches.open();
 
