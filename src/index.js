@@ -38,9 +38,6 @@ const createWindow = () => {
   // and load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
-
   mainWindow.setMenuBarVisibility(false)
 
 
@@ -66,6 +63,13 @@ const createWindow = () => {
   mainWindow.once('ready-to-show', () => {
     mainWindow.show() // показать окно после полной загрузки
   })
+
+    // Open the DevTools.
+    mainWindow.webContents.openDevTools();
+
+    globalShortcut.register('Ctrl+I', () => {
+      mainWindow.webContents.openDevTools();
+    })
 
  // По клику скрываем или открываем приложение
  appTray.on('click', () => {

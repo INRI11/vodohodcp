@@ -18,7 +18,6 @@ body {
     overflow-y: hidden;
 }
 
-
 .v-sidebar {
     background-color: #252525;
     padding: 20px;
@@ -79,4 +78,28 @@ header.v-header {
     color: #575757;
     background-color: #c5fb9c;
     display: inline-block;
+}
+
+
+.v-json-wrapper {
+    width: 100%;
+}
+.v-json-actions {
+    width: 100%;
+    height: 40px;
+}
+
+.v-json-code {
+    display: block;
+    width: 100%;
+}
+.v-json-code textarea {
+    display: block;
+    width: 100%;
+
+}
+.v-json-three {
+    display: none;
+    width: 100%;
+
 }

@@ -19,10 +19,26 @@ class JsonFormatter {
         // default
     }
 
-
-
     open() {
-        alert(beautify(data, { indent_size: 2, space_in_empty_paren: true }));
+        let json = beautify(data, { indent_size: 2, space_in_empty_paren: true });
+        let elWrapper = document.getElementById('elWrapper');
+        let elText = `<div class='v-json-wrapper h-100'>
+                        <div class='v-json-actions'>
+                            <button class='v-btn' >Код</button>
+                            <button class='v-btn' >Дерево</button>
+                        </div>
+                        <div class='row h-100'>
+                            <div class='col-12'>
+                                <div class='v-json-code h-100'>
+                                    <textarea class='h-100'>${json}</textarea>
+                                </div>
+                                <div class='v-json-three'></div>
+                            </div>
+                        </div>
+                        
+                    </div>`;
+        
+        elWrapper.innerHTML = elText;
     }
 
 
