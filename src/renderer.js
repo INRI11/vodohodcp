@@ -38,6 +38,10 @@ const onJsonCodeFormatter = () => {
     jsonFormatter.onJsonFormatter();
 }
 
+const onBranchSwitch = (url) => {
+    branches.switchBranch(url);
+}
+
 
 
 window.addEventListener('DOMContentLoaded', () => {

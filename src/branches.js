@@ -86,7 +86,7 @@ class Branches {
         }
     }
 
-    onSwitch(url) {
+    switchBranch(url) {
         var sBranch = '';
         var formData = new FormData();
         formData.append('method', 'get_branch');
@@ -110,7 +110,7 @@ class Branches {
                     let promise = this.post(url, formData);
                     promise.then(
                         result => {
-                            this.onSync();
+                            this.sync();
                         },
                         error => {
                             console.log(error);
@@ -144,7 +144,9 @@ class Branches {
                                     </div> 
                                     <div class="row" style="margin-top: 10px;">
                                     <div class="col-12">Ветка: <span id="elBranchName${project.id}" class="v-branch">...</span>
-                                        <button onclick="obBranches.onSwitchBranch('${project.url}');" class="v-btn btn" style="margin-left: 10px;">Переключить</button>
+                                        <button onclick="onBranchSwitch('${project.url}');" class="v-btn btn" style="margin-left: 10px;">Переключить</button>
+                                        <button onclick="onBranchStatus('${project.url}');" class="v-btn btn" style="margin-left: 10px;">Статус</button>
+                                        <button onclick="onBranchLogs('${project.url}');" class="v-btn btn" style="margin-left: 10px;">Коммиты</button>
                                     </div>
                                     </div>
                                 </div>`;

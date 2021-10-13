@@ -36,26 +36,50 @@ header.v-header {
 .v-mbtn:focus,
 .v-mbtn:visited {
     color: #FFFFFF;
-    border: 1px solid #252525;
+    /*border: 1px solid #252525;*/
     background-color: #252525;
     border-radius: 0px;
+
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    resize: none;
 }
 .v-mbtn:hover{
     color: #FFFFFF;
-    border: 1px solid #38373d;
+    /*border: 1px solid #38373d;*/
+    border: none;
     background-color: #38373d;
     border-radius: 0px;
 }
 
-.v-btn {
+.v-btn,
+.v-btn:link,
+.v-btn:focus,
+.v-btn:visited {
     color: #FFFFFF;
-    border: 1px solid #333333;
+    /* border: 1px solid #333333; */
     background-color: #333333;
     padding: 4px 10px 4px 10px;
+
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    resize: none;
 }
 .v-btn:hover {
     color: #FFFFFF;
-    border: 1px solid #434343;
+    /* border: 1px solid #434343; */
     background-color: #434343;
 }
 
@@ -95,22 +119,69 @@ header.v-header {
 .v-json-code {
     display: block;
     width: 100%;
+    position: relative;
 }
+.v-json-select select,
+.v-json-select select:link,
+.v-json-select select:focus,
+.v-json-select select:visited,
+.v-json-select select:hover {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    background-color: #3c3c3c;
+
+    border: 1px solid #3c3c3c;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    color: #577a16;
+
+    resize: none;
+    outline: none; 
+
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;       /* Remove default arrow */
+    padding: 3px 10px;
+}
+
+.v-json-select select::-ms-expand { display: none; } 
+.v-json-select select option { 
+    font-weight:normal;
+} 
+
+*[dir="rtl"] .v-json-select select, 
+:root:lang(ar) .v-json-select select, 
+:root:lang(iw) .v-json-select select { 
+    background-position: left .7em top 50%, 0 0; 
+    padding: .6em .8em .5em 1.4em; 
+}
+
 .v-json-code textarea {
+    color: #FFFFFF;
     display: block;
     width: 100%;
+    background-color: #333333;
 
-}
-.v-json-three {
-    display: none;
-    width: 100%;
-
-}
-
-.v-json-code textarea {
-	overflow-y: scroll;
+    overflow-y: scroll;
     border: none;
 	scrollbar-color: #bfc4ce #f9f9fd;  
+
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    resize: none; /*remove the resize handle on the bottom right*/
+
 }
 .v-json-code textarea::-webkit-scrollbar {
     width: 7px;
@@ -126,6 +197,31 @@ header.v-header {
     background-color: #f9f9fd;
 }
 
+.v-json-tree {
+    display: block;
+    width: 100%;
+    overflow-y: scroll;
+    background-color: #333333;
+    scrollbar-color: #bfc4ce #f9f9fd;
+}
+.v-json-tree::-webkit-scrollbar {
+    width: 7px;
+    background-color: #f9f9fd;   
+	border-radius: 9em;
+}
+.v-json-tree::-webkit-scrollbar-thumb {
+    background-color: #bfc4ce;
+}
+.v-json-tree::-webkit-scrollbar-track {
+    -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+    background-color: #f9f9fd;
+}
+.v-json-tree a.json-toggle:before {
+    left: -20px !important;
+}
+
+
+
 .elJsonTreePath {
     font-size: 12px;
     padding: 4px;
@@ -133,6 +229,6 @@ header.v-header {
     border: none;
     background: none;
     color: #ffffff;
-    width: auto;
+    width: 300px;
     display:inline-block;
 }

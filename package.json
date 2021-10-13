@@ -38,7 +38,7 @@
       "electronInstallerRedhat": {},
       "github_repository": {
         "owner": "inri11",
-        "name": "inri11"
+        "name": "vodohodcp"
       },
       "windowsStoreConfig": {
         "packageName": "",
@@ -51,21 +51,21 @@
     "electron-compile": "^6.4.4",
     "electron-prompt": "^1.7.0",
     "electron-squirrel-startup": "^1.0.0",
-    "node-notifier": "^10.0.0"
+    "electron-db": "^0.15.7",
+    "node-notifier": "^10.0.0",
+    "js-beautify": "^1.14.0",
+    "jsonpath-picker-vanilla": "^1.2.3"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "electron-db": "^0.15.7",
     "electron-forge": "^5.2.4",
     "electron-prebuilt-compile": "8.2.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.26.1",
-    "js-beautify": "^1.14.0",
-    "jsonpath-picker-vanilla": "^1.2.3"
+    "eslint-plugin-react": "^7.26.1"
   }
 }
