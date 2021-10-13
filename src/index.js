@@ -64,15 +64,15 @@ const createWindow = () => {
     mainWindow.show() // показать окно после полной загрузки
   })
 
-    // Open the DevTools.
+  // Open the DevTools.
+  //mainWindow.webContents.openDevTools();
+
+  globalShortcut.register('Ctrl+I', () => {
     mainWindow.webContents.openDevTools();
+  })
 
-    globalShortcut.register('Ctrl+I', () => {
-      mainWindow.webContents.openDevTools();
-    })
-
- // По клику скрываем или открываем приложение
- appTray.on('click', () => {
+  // По клику скрываем или открываем приложение
+  appTray.on('click', () => {
     mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
   })
 

@@ -49,12 +49,13 @@
   "dependencies": {
     "bootstrap": "^5.1.2",
     "electron-compile": "^6.4.4",
+    "electron-db": "^0.15.7",
+    "electron-modal-window": "^1.0.0",
     "electron-prompt": "^1.7.0",
     "electron-squirrel-startup": "^1.0.0",
-    "electron-db": "^0.15.7",
-    "node-notifier": "^10.0.0",
     "js-beautify": "^1.14.0",
-    "jsonpath-picker-vanilla": "^1.2.3"
+    "jsonpath-picker-vanilla": "^1.2.3",
+    "node-notifier": "^10.0.0"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "^6.24.1",

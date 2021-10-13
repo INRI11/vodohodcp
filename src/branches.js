@@ -6,6 +6,7 @@ const globalShortcut = electron.remote.globalShortcut;
 const path = require('path');
 const url = require('url');
 const notifier = require('node-notifier');
+const modal = require('electron-modal-window');
 
 const prompt = require('electron-prompt');
 
@@ -125,6 +126,85 @@ class Branches {
         );
     }
 
+    gitLogs(url) {
+        var formData = new FormData();
+        formData.append('method', 'git_logs');
+        let promise = this.post(url, formData);
+        promise.then(
+            result => {
+                if(result.logs.length) {
+                    let line = '';
+                    for (let index = 0; index < result.logs.length; index++) {
+                        line += `<p>${result.logs[index]}</p>`;
+                    }
+
+                    const modalWindow = modal.createModal( path.join(__dirname, '/modal.html'), {
+                        width: 700,
+                        height: 500,
+                        resizable: false, 
+                        //movable: false,
+                        autoHideMenuBar: true,
+                        webPreferences: {
+                            nodeIntegration: true
+                        },
+                        frame: true
+                    })
+
+                    modalWindow.on('title', function (cb) {
+                        cb(null, 'Последние 3 коммита')
+                    })
+                
+                    modalWindow.on('body', function (cb) {
+                        cb(null, line)
+                    })
+                } 
+            },
+            error => {
+                console.log(error);
+            }
+        );
+    }
+
+    gitStatus(url) {
+        var formData = new FormData();
+        formData.append('method', 'git_status');
+        let promise = this.post(url, formData);
+        promise.then(
+            result => {
+                if(result.status.length) {
+                    let line = '';
+                    for (let index = 0; index < result.status.length; index++) {
+                        let text = result.status[index];
+                        text = text.replace("On branch", "Текущая ветка");
+                        text = text.replace("Your branch is up to date with", "В вашей ветке установлена последняя версия");
+                        text = text.replace("Changes not staged for commit", "Изменения, не предназначенные для коммита");
+                        text = text.replace("nothing to commit, working tree clean", "нечего коммитить, рабочее дерево чистое");
+                        text = text.replace("nothing added to commit but untracked files present", "ничего не добавлено для коммита, но присутствуют неотслеживаемые файлы");
+                        line += `<p style='padding: 3px 0px; margin: 0px;'>${text}</p>`;
+                    }
+
+                    const modalWindow = modal.createModal( path.join(__dirname, '/modal.html'), {
+                        width: 700,
+                        height: 500,
+                        resizable: false, 
+                        //movable: false,
+                        autoHideMenuBar: true,
+                        webPreferences: {
+                            nodeIntegration: true
+                        },
+                        frame: true
+                    })
+                
+                    modalWindow.on('body', function (cb) {
+                        cb(null, line)
+                    })
+                } 
+            },
+            error => {
+                console.log(error);
+            }
+        );
+    }
 
     open() {
         let elWrapper = document.querySelector('#elWrapper');

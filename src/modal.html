@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Модальное окно</title>
+  <link rel="stylesheet" type="text/css" href="./reset.css">
+  <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container-fluid h-100" id="elContainer"></div>
+    <style>
+        div {
+            font-size: 14px;
+            font-weight: normal;
+            color: #FFFFFF;
+        }
+        
+        body {
+            overflow-y: scroll;
+            background-color: #333333;
+            scrollbar-color: #bfc4ce #f9f9fd;
+        }
+        body::-webkit-scrollbar {
+            width: 7px;
+            background-color: #f9f9fd;   
+            border-radius: 9em;
+        }
+        body::-webkit-scrollbar-thumb {
+            background-color: #bfc4ce;
+        }
+        body::-webkit-scrollbar-track {
+            -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+            background-color: #f9f9fd;
+        }
+    </style>
+    <script>
+        const modal = require('electron-modal-window')
+
+        let elContainer = document.getElementById('elContainer');
+
+        modal.send('title', function (err, value) {
+            if(value) {
+                let element = document.getElementsByName('title');
+                element.innerHTML = `${value}`;
+            }
+        })
+
+        modal.send('header', function (err, value) {
+            if(value) {
+                let element = document.createElement('div');
+                element.innerHTML = `<div class="row"><div class="col-12"><h1>${value}</h1></div></div>`;
+                elContainer.append(element);
+            }
+        })
+
+        modal.send('body', function (err, value) {
+            if(value) {
+                let element = document.createElement('div');
+                element.innerHTML = `<div class="row"><div class="col-12"><div style='padding: 10px 0;'>${value}</div></div></div>`;
+                elContainer.append(element);
+            }
+        })
+    </script>
+</body>
+</html>
