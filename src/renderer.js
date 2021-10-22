@@ -55,6 +55,12 @@ const onBranchLogs = (url) => {
 window.addEventListener('DOMContentLoaded', () => {
     branches.open();
 
+    if (process.platform === 'darwin')
+    {
+        let vheader = document.querySelector('.v-header');
+        vheader.setAttribute("style",`padding-left:70px`);
+    }
+
     let timerId = setInterval(() => {
         branches.sync();
     }, 60000);
